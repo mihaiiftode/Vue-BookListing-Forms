@@ -10,7 +10,7 @@
       <option v-for="filter in filters">{{filter}}</option>
     </select>
     <ul>
-      <book-item v-for="book in filterBooks" :key="book.id" :book="book"></book-item>
+      <book-item v-for="book in filteredBooks" :key="book.id" :book="book"></book-item>
     </ul>
     <br>
     <hr>
@@ -58,7 +58,7 @@ export default {
     BookForm
   },
   computed: {
-    filterBooks() {
+    filteredBooks() {
       return _.filter(this.books, ["ownership", this.holding]);
     }
   },
